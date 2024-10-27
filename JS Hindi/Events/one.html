@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+
+            <li><img width="200px" id="photoshop" src="./files/photoshop.jpg" alt="photoshop"></li>
+
+            <li><img width="200px" id="japan" src="./files/japan.jpg" alt=""></li>
+
+            <li><img width="200px" id="river" src="./files/river.jpg" alt=""></li>
+
+            <li><img width="200px" id="owl" src="./files/owl.avif" alt=""></li>
+
+            <li><img width="200px" id="prayer" src="./files/prayer.jpeg" alt=""></li>
+
+            <li><a style="color: rgb(15, 113, 113);" href="https://google.com" id="google">Google</a></li>
+
+        </ul>
+    </div>
+</body>
+<script>
+   /*  document.getElementById('owl').onclick = function() {
+        alert('Owl Clicked')
+    } */
+
+    // attachEvent()
+    // jQuery - on
+    // type, timestamp, defaultPrevented
+    // target, toelement, srcElement, currentTarget,
+    // altkey, ctrlkey, shiftkey, keyCode
+
+ /* document.getElementById('owl').addEventListener('click', function() {
+    alert('owl Clicked')
+   }) */
+
+
+   /* document.getElementById('owl').addEventListener('click', function(e) {
+    console.log(e);
+   }, false) */
+
+
+ /*   document.getElementById('images').addEventListener('click', function(e) {
+    console.log("clicked inside the ul");
+   }, false) // try true
+
+   document.getElementById('owl').addEventListener('click', function(e) {
+    console.log("owl Clicked");
+    e.stopPropagation()
+   }, false) // try true
+
+   document.getElementById('google').addEventListener('click', function(e) {
+    e.preventDefault()
+    e.stopPropagation(); // stop the parent click like ul
+    console.log("Google Clicked");
+   }) */
+
+
+
+   /*  document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+        // removeIt.parentNode.removeChild(removeIt)
+    }) */
+
+
+    // For removing only image not list dot. => Execute and see the result.
+    document.querySelector('#images').addEventListener('click', function(e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            const removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+</script>
+</html>
